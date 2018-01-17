@@ -1,0 +1,17 @@
+abc = "Some string"
+abc
+abc * 2
+['some string',123]
+list_var = ['some string',123, 'another string']
+list_var
+list_var.append("some other item")
+len(list_var)
+
+list_var[1]
+
+another_list = ['Justin', 'John', 'Matt']
+another_list[1]
+
+len(another_list)
+
+another_list.pop(0)
