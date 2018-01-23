@@ -1,0 +1,31 @@
+>>> True
+True
+>>> False
+False
+>>> print(True==True)
+True
+>>> print(True==False)
+False
+>>> "kelvin" == "Kelvin"
+False
+>>> obj_a = True
+>>> obj_b - False
+>>> obj_b = False
+>>> obj_a == obj_b
+False
+>>> list_a = [1,2,3]
+>>> list_b = [1,2,3]
+>>> list_c = [4,5,6]
+>>> print(list_a==list_b)
+True
+>>> print(list_c == list_b)
+False
+>>> print(list_c == list_a)
+False
+>>> print(list_b == list_a)
+True
+>>> name = "justin"
+>>> print(len(name) < 6)
+False
+>>> print(len(name) < 10)
+True
