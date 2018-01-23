@@ -29,3 +29,68 @@ True
 False
 >>> print(len(name) < 10)
 True
+
+>>> list_a = [1,2,3]
+>>> for i in list_a:
+...  print(i)
+...
+1
+2
+3
+
+>>> for i in list_a:
+...  if (i * 2)%3 == 0:
+...   print("seu numero é 9")
+...   print(i)
+...
+seu numero é 9
+3
+
+
+>>> for i in list_a:
+...  if i ==2:
+...   print("result is 2")
+...  elif i == 1:
+...   print("diferente")
+...  else:
+...   print(i)
+...
+diferente
+result is 2
+3
+
+
+>>> isinstance(3, int)
+True
+>>> isinstance(3.0, int)
+False
+
+>>> for i in list_d:
+...  if isinstance(i, int):
+...   list_e.append(i)
+...
+>>> print(list_e)
+[3231, 390122]
+>>> list_e[0]
+3231
+
+>>> x=0
+>>> list_d = ["Justin", "Apple", "Food", 3231, "Another", 390122]
+>>> list_e = ´[]
+  File "<stdin>", line 1
+    list_e = ´[]
+             ^
+SyntaxError: invalid character in identifier
+>>> list_e = []
+>>> for item in list_d:
+...     if isinstance(item, int):
+...             list_e.append(item)
+...             list_d.pop(x)
+...     x +=1
+...
+3231
+390122
+>>> list_d
+['Justin', 'Apple', 'Food', 'Another']
+>>> list_e
+[3231, 390122]
