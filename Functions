@@ -1,0 +1,58 @@
+>>> items = ["Mic", "Phone", 323,12, 3123,123, "Justin", "Bag", "Cliff Bars", 134]
+>>> items
+['Mic', 'Phone', 323, 12, 3123, 123, 'Justin', 'Bag', 'Cliff Bars', 134]
+>>> isinstance(123.23, int)
+False
+>>> isinstance(123.23, float)
+True
+
+>>> str_items = ["Abc", "JM", "ED", "AD", "aaa", "bb"]
+>>> str_items
+['Abc', 'JM', 'ED', 'AD', 'aaa', 'bb']
+>>> str_items.sort()
+>>> str_items
+['AD', 'Abc', 'ED', 'JM', 'aaa', 'bb']
+>>> str_items.sort(key=str.lower)
+>>> str_items
+['aaa', 'Abc', 'AD', 'bb', 'ED', 'JM']
+>>> str_items.sort(key=str.lower, reverse=True)
+>>> str_items
+['JM', 'ED', 'bb', 'AD', 'Abc', 'aaa']
+>>> new_items = sorted(str_items)
+>>> new_items
+['AD', 'Abc', 'ED', 'JM', 'aaa', 'bb']
+>>> new_items = sorted(str_items, key=str.lower, reverse=True)
+>>> new_items
+['JM', 'ED', 'bb', 'AD', 'Abc', 'aaa']
+>>>
+>>>
+>>> int_items = [123, 13.23, 3213, 323.23, 9942]
+>>> int_items
+[123, 13.23, 3213, 323.23, 9942]
+>>> int_items.sort()
+>>> int_items
+[13.23, 123, 323.23, 3213, 9942]
+>>> int_items.sort(reverse=True)
+>>> int_items
+[9942, 3213, 323.23, 123, 13.23]
+>>> new_items = sorted(int_items, reverse=True)
+>>> new_items
+[9942, 3213, 323.23, 123, 13.23]
+>>> int_items
+[9942, 3213, 323.23, 123, 13.23]
+>>> new_items = sorted(int_items, reverse=False
+... )
+>>> new_items
+[13.23, 123, 323.23, 3213, 9942]
+>>> int_items
+[9942, 3213, 323.23, 123, 13.23]
+>>> sum(int_items)
+13614.46
+>>> total = sum(int_items)
+>>> total
+13614.46
+>>> average = total/len(int_items)
+>>> average
+2722.892
+>>>
+
