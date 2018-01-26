@@ -1,0 +1,42 @@
+text = "This is {variable_a} formatted string".format(variable_a="variable based")
+
+"This is a {var} string".format(var="really really cool")
+
+"My name is {name}".format(name="Kelvin")
+
+my_name = "Kelvin"
+
+"My name is {the_name}".format(the_name=my_name)
+
+text = "This is a argument {0} {0} {0} {0}".format("here", "another")
+
+text = "This is a argument {0} {0} {0} {1}".format("here", "another")
+
+"hi there %s! Thanks." %("Kelvin")
+
+import datetime
+today = datetime.date.today()
+text = '{today.month}/{today.day}/{today.year}'.format(today=today)
+print(text)
+
+text = today.strftime('%-m/%-d/%y')
+print(text)
+
+now = datetime.datetime.utcnow() #utc time
+text = now.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+print(text)
+
+now = datetime.datetime.now() #local time
+date_text = now.strftime('%Y/%m/%d %H:%M:%S.%f') #[:-3]
+text = "Time is: %s" %(date_text)
+print(text)
+
+now = datetime.datetime.now()
+date_text = now.strftime('%B %d, %Y %H:%M:%S.%f %p')
+text = "Time is %s" %(date_text)
+print(text)
+
+now = datetime.datetime.now()
+date_text = now.strftime('%x')
+text = "Time is %s" %(date_text)
+print(text)
