@@ -1,21 +1,22 @@
-import os
 import csv
+import datetime
 import shutil
+import os
 from tempfile import NamedTemporaryFile
 
-os.getcwd()
+#os.getcwd()
 os.chdir('C:\\Users\\Home\\Documents\\Material de Estudo\\Python\\Curso 30 Days of Python\\CSV_Examples')
-os.getcwd()
+#os.getcwd()
+
 
 def get_length(file_path):
-    with open("data.csv") as csvfile:
+    with open("data.csv", "r") as csvfile:
         reader = csv.reader(csvfile)
         reader_list = list(reader)
-        print(reader_list)
         return len(reader_list)
 
-def append_data(file_path, name, email):
-    fieldnames = ['id', 'name', 'email']
+def append_data(file_path, name, email, amount):
+    fieldnames = ['id', 'name', 'email', 'amount', 'sent', 'date']
     #the number of rows?
     next_id = get_length(file_path)
     with open(file_path, "a") as csvfile:
@@ -24,30 +25,39 @@ def append_data(file_path, name, email):
                 "id": next_id,
                 "name": name,
                 "email": email,
+                "sent": "",
+                "amount": amount,
+                "date": datetime.datetime.now()
             })
 
+#append_data("data.csv", "Justin", "hello@teamcfe.com", 123.22)
+
+def edit_data(edit_id=None, email=None, amount=None, sent=None):
+    filename = "data.csv"
+    temp_file = NamedTemporaryFile(delete=False)
+    with open(filename, "rb") as csvfile, temp_file:
+        reader = csv.DictReader(csvfile)
+        fieldnames = ['id', 'name', 'email', 'amount', 'sent', 'date']
+        writer = csv.DictWriter(temp_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in reader:
+            #print(row['id'] == 4)
+            if edit_id is not None:
+                if int(row['id']) == int(edit_id):
+                    row['amount'] = amount
+                    row['sent'] = sent
+            elif email is not None and edit_id is None:
+                if str(row['email']) == str(email):
+                    row['amount'] = amount
+                    row['sent'] = sent
+            else:
+                pass
+            writer.writerow(row)
+        
+        shutil.move(temp_file.name, filename)
+        return True
+    return False
 
 
-#append_data("data.csv", "Justin", "hello@teamcfe.com")
-
-
-filename = "data.csv"
-temp_file = NamedTemporaryFile(delete=False)
-
-with open(filename, "rb") as csvfile, temp_file:
-    reader = csv.DictReader(csvfile)
-    filename = ['id','name', 'email', 'amount', 'sent']
-    writer = csv.DictWriter(temp_file, fieldnames=fieldnames)
-    writer.writerheader()
-
-    for row in reader:
-        print(row)
-        writer.writerow({
-                "id": row["id"],
-                "name": row["name"],
-                "email": row["email"],
-                "amount": "1293.23",
-                "sent": ""
-            })
-
-#shutil.move(temp_file, filename)
+#edit_data(8, 9992.32, "")
+edit_data(email='hello@teamcfe.com', amount=99.99, sent='')
